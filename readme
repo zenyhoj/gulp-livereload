@@ -1,0 +1,8 @@
+- created variable for js scripts SCRIPTS_PATH for gulp.src reference 
+- added watch task
+
+-livereload functionality
+1 npm install --save-dev gulp-livereload@3.8.1
+2 gulpfile.js: var livereload = require(gulp-livereload);
+3 after require('./server.js'), add livereload();
+4 gulpfile.js: add .pipe(livereload()); after gulp.dest
