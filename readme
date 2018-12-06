@@ -6,3 +6,20 @@
 2 gulpfile.js: var livereload = require(gulp-livereload);
 3 gulpfile.js: after require('./server.js'), add livereload();
 4 gulpfile.js: add .pipe(livereload()); after gulp.dest
+5 add scriptin index.html: <script src="http://localhost:35729/livereload.js"></script>
+
+-css concatenation
+1 npm install --save-dev gulp-concat@2.6.0
+2 gulpfile.js: var concat = require('gulp-concat');
+3 create public/css folder and add css files
+4 add to path variable: var CSS_PATH = "public/css/**/*.css";
+5 process the css concatenation:
+     return gulp.src(['public/css/reset.css', CSS_PATH]) /** load reset.css first then the rest*/
+        .pipe(concat('styles.css'))
+        .pipe(gulp.dest(DIST_PATH))
+        .pipe(livereload());
+
+6 reference styles.css in index.html
+7 watch styles.css changes and livereload
+    gulp.watch([SCRIPTS_PATH, CSS_PATH], ['scripts', 'styles']);
+    

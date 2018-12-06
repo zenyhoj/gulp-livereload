@@ -1,0 +1,14 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    margin-bottom: 3rem;
+    padding: 3rem;
+    color: green;
+    text-transform: uppercase;
+
+}
