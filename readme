@@ -22,4 +22,9 @@
 6 reference styles.css in index.html
 7 watch styles.css changes and livereload
     gulp.watch([SCRIPTS_PATH, CSS_PATH], ['scripts', 'styles']);
+
+-css minification(reducing file size)
+1 npm install gulp-minify-css@1.2.2 --save-dev
+2 gulpfile.js: var minifyCss = require('gulp-minify-css'); //minify css
+3 after css concat, pipe: .pipe(minifyCss())
     

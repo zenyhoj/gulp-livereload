@@ -3,16 +3,20 @@ var uglify = require("gulp-uglify");
 var pump = require("pump");
 var livereload = require("gulp-livereload");
 var concat = require("gulp-concat"); //css concatenation package
+var minifyCss = require('gulp-minify-css'); //minify css
 
 // file paths
 var DIST_PATH = "public/dist";
 var SCRIPTS_PATH = "public/scripts/**/*.js";
 var CSS_PATH = "public/css/**/*.css";
-gulp.task("html", function() {
+
+
+gulp.task("html", function () {
   console.log("html started");
+
 });
 
-gulp.task("styles", function() {
+gulp.task("styles", function () {
   console.log("concatenating css...");
   return gulp
     .src([
@@ -20,11 +24,12 @@ gulp.task("styles", function() {
       CSS_PATH
     ]) /** load reset.css first then the rest*/
     .pipe(concat("styles.css"))
+    .pipe(minifyCss())
     .pipe(gulp.dest(DIST_PATH))
     .pipe(livereload());
 });
 
-gulp.task("scripts", function() {
+gulp.task("scripts", function () {
   console.log("js scripts starts");
 
   return gulp
@@ -35,10 +40,13 @@ gulp.task("scripts", function() {
 });
 
 // watch task
-gulp.task("watch", function() {
+gulp.task("watch", function () {
   console.log("starting watch task");
   require("./server"); /* run the server.js */
   livereload.listen();
-  gulp.watch([SCRIPTS_PATH, CSS_PATH], ["scripts", "styles"]);
-  // gulp.watch(CSS_PATH, ["styles"]);
+  // gulp.watch([SCRIPTS_PATH, CSS_PATH, HTML_PATH], ["scripts", "styles", "html"]);
+  gulp.watch(SCRIPTS_PATH, ["scripts"])
+  gulp.watch(CSS_PATH, ["styles"]);
+
+
 });
