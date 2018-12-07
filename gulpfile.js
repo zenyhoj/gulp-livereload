@@ -4,7 +4,7 @@ var pump = require("pump");
 var livereload = require("gulp-livereload");
 var concat = require("gulp-concat"); //css concatenation package
 var minifyCss = require('gulp-minify-css'); //minify css
-
+var autoprefixer = require('gulp-autoprefixer');
 // file paths
 var DIST_PATH = "public/dist";
 var SCRIPTS_PATH = "public/scripts/**/*.js";
@@ -23,6 +23,7 @@ gulp.task("styles", function () {
       "public/css/reset.css",
       CSS_PATH
     ]) /** load reset.css first then the rest*/
+    .pipe(autoprefixer())
     .pipe(concat("styles.css"))
     .pipe(minifyCss())
     .pipe(gulp.dest(DIST_PATH))

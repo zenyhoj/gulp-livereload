@@ -27,4 +27,9 @@
 1 npm install gulp-minify-css@1.2.2 --save-dev
 2 gulpfile.js: var minifyCss = require('gulp-minify-css'); //minify css
 3 after css concat, pipe: .pipe(minifyCss())
+
+-css autoprefixer
+1 npm install gulp-autoprefixer@3.1.0 --save-dev
+2 gulpfile.js: var autoprefixer = require('gulp-autoprefixer'); //automatically adds vendor prefixes
+3 before css concat, pipe: .pipe(autoprefixer())
     
