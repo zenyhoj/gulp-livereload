@@ -1,2 +1,2 @@
-var name = 'eddie';
+var name = 'joe';
 document.write('hello ' + name + '!');
