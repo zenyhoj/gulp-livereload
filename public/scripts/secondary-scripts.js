@@ -1,3 +1,3 @@
-var name = 'jemar';
-
-document.write('hello' + name + '!');
+(function () {
+    console.log('this is it now!');
+}());

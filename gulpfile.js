@@ -68,13 +68,17 @@ gulp.task("styles", function () {
 });
 
 
-
+//Scripts
 gulp.task("scripts", function () {
   console.log("js scripts starts");
 
   return gulp
     .src(SCRIPTS_PATH)
-    .pipe(uglify()) //does javascript minification
+    //removes whitespaces in js files
+    .pipe(uglify())
+    //concatenates js files into one named scripts.js
+    //uses the package gulp-concat
+    .pipe(concat('scripts.js'))
     .pipe(gulp.dest(DIST_PATH))
     .pipe(livereload()); /** automatically refreshes after saving changes */
 });
