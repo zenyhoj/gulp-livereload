@@ -1,0 +1,21 @@
+@import "./reset/basic-reset";
+
+// variables
+$primary: blue;
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1,
+p {
+
+    font-size: 3rem;
+    padding: 2rem;
+    color: $primary;
+    text-transform: uppercase;
+}
