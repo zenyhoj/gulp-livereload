@@ -32,4 +32,13 @@
 1 npm install gulp-autoprefixer@3.1.0 --save-dev
 2 gulpfile.js: var autoprefixer = require('gulp-autoprefixer'); //automatically adds vendor prefixes
 3 before css concat, pipe: .pipe(autoprefixer())
-    
+
+-adding sourcemaps to css files
+1 npm install --save-dev gulp-sourcemaps@1.6.0
+2 gulpfile.js: var sourcemaps = require('gulp-sourcemaps');
+3 add this code after return gulp.src of styles task: 
+    .src(["public/css/reset.css", CSS_PATH])
+    .pipe(sourcemaps.init())
+4 add this code before gulp.dest of styles task: 
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(DIST_PATH))

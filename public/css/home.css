@@ -5,16 +5,11 @@ body {
     flex-direction: column;
 }
 
-h1 {
+h1,
+p {
 
     font-size: 3rem;
+    padding: 2rem;
     color: green;
     text-transform: uppercase;
-
-}
-
-p {
-    padding: 2rem;
-
-
 }
