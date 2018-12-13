@@ -13,7 +13,7 @@ var sass = require('gulp-sass');
 // file paths
 var DIST_PATH = "public/dist";
 var SCRIPTS_PATH = "public/scripts/**/*.js";
-var CSS_PATH = "public/css/**/*.css";
+// var CSS_PATH = "public/css/**/*.css";
 
 gulp.task("html", function () {
   console.log("html started");

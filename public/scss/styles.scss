@@ -1,7 +1,8 @@
 @import "./reset/basic-reset";
+@import "./base/variables";
 
 // variables
-$primary: blue;
+
 
 
 body {
@@ -9,6 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
 }
 
 h1,

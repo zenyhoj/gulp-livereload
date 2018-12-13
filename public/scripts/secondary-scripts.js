@@ -1,3 +1,3 @@
 (function () {
-    console.log('this is it now!');
+    console.log('this makes me feel awesome!');
 }());
