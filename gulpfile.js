@@ -74,11 +74,23 @@ gulp.task("scripts", function () {
 
   return gulp
     .src(SCRIPTS_PATH)
+
+    //Error handling
+    .pipe(
+      plumber(function (err) {
+        console.log("Scripts Task Error");
+        console.log(err);
+        this.emit("end");
+      })
+    )
+
+    .pipe(sourcemaps.init())
     //removes whitespaces in js files
     .pipe(uglify())
     //concatenates js files into one named scripts.js
     //uses the package gulp-concat
     .pipe(concat('scripts.js'))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(DIST_PATH))
     .pipe(livereload()); /** automatically refreshes after saving changes */
 });

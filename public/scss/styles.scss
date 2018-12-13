@@ -1,9 +1,6 @@
 @import "./reset/basic-reset";
 @import "./base/variables";
 
-// variables
-
-
 
 body {
     display: flex;
@@ -17,7 +14,7 @@ h1,
 p {
 
     font-size: 3rem;
-    padding: 2rem;
+    padding: 3rem;
     color: $primary;
     text-transform: uppercase;
 }
