@@ -7,7 +7,7 @@ class Person {
         if (typeof this.name === 'string') {
             return 'Hello, I am ' + this.name + '!';
         } else {
-            return 'Hello';
+            return 'Hello there';
         }
     }
 }

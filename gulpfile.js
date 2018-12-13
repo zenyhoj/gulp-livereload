@@ -47,6 +47,12 @@ gulp.task("html", function () {
 // });
 
 
+
+//default task
+gulp.task('default', ['styles', 'scripts', ], function () {
+  console.log('Starting default tasks');
+})
+
 // Styles for SCSS
 gulp.task("styles", function () {
   console.log("SCSS task started...");
@@ -102,8 +108,8 @@ gulp.task("scripts", function () {
     .pipe(livereload()); /** automatically refreshes after saving changes */
 });
 
-// watch task
-gulp.task("watch", function () {
+// watch task, perform default tasks first
+gulp.task("watch", ['default'], function () {
   console.log("starting watch task");
   require("./server"); /* run the server.js */
   livereload.listen();
