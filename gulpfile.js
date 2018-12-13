@@ -10,6 +10,9 @@ var plumber = require("gulp-plumber");
 var notify = require("gulp-notify");
 var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
+var babel = require('gulp-babel');
+var babelcore = require('babel-core');
+
 // file paths
 var DIST_PATH = "public/dist";
 var SCRIPTS_PATH = "public/scripts/**/*.js";
@@ -57,6 +60,7 @@ gulp.task("styles", function () {
       })
     )
     .pipe(sourcemaps.init())
+
     .pipe(autoprefixer())
     .pipe(sass({
       // will compressed the file
@@ -74,17 +78,20 @@ gulp.task("scripts", function () {
 
   return gulp
     .src(SCRIPTS_PATH)
-
     //Error handling
     .pipe(
       plumber(function (err) {
         console.log("Scripts Task Error");
-        console.log(err);
+        console.log(err.toString());
         this.emit("end");
       })
     )
-
     .pipe(sourcemaps.init())
+
+    .pipe(babel({
+      presets: ['es2015']
+    }))
+
     //removes whitespaces in js files
     .pipe(uglify())
     //concatenates js files into one named scripts.js
