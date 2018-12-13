@@ -11,7 +11,7 @@ var notify = require("gulp-notify");
 var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
 var babel = require('gulp-babel');
-var babelcore = require('babel-core');
+
 
 // file paths
 var DIST_PATH = "public/dist";
@@ -72,7 +72,7 @@ gulp.task("styles", function () {
 });
 
 
-//Scripts
+//Scripts Tasks
 gulp.task("scripts", function () {
   console.log("js scripts starts");
 
@@ -89,7 +89,7 @@ gulp.task("scripts", function () {
     .pipe(sourcemaps.init())
 
     .pipe(babel({
-      presets: ['es2015']
+      presets: ['@babel/env']
     }))
 
     //removes whitespaces in js files
